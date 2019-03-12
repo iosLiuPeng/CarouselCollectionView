@@ -59,6 +59,9 @@
 #pragma mark - Subjoin
 - (void)viewConfig
 {
+    super.dataSource = self;
+    super.delegate = self;
+    
     self.pagingEnabled = YES;
     self.showsHorizontalScrollIndicator = NO;
     self.bounces = NO;
@@ -75,7 +78,6 @@
 #pragma mark - Set & Get
 - (void)setDelegate:(id<CarouselCollectionViewDelegate>)delegate
 {
-    super.delegate = self;
     _myDelegate = delegate;
 }
 
@@ -86,7 +88,6 @@
 
 - (void)setDataSource:(id<CarouselCollectionViewDataSource>)dataSource
 {
-    super.dataSource = self;
     _myDataSource = dataSource;
 }
 
@@ -148,7 +149,7 @@
     if (_currentIndexPath.row + 1 >= _itemCount) {
         return;
     }
-
+    
     NSInteger index = _currentIndexPath.row + 1;
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
     [self scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
@@ -221,5 +222,4 @@
     [self.collectionViewLayout invalidateLayout];
     [self scrollToItemAtIndexPath:_currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
-
 @end
