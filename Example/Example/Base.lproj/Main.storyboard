@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Data Source-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIk-1J-dhL" userLabel="View content">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14S-o2-Qz5" customClass="CarouselCollectionView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="213.5"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="uxa-LL-ccG"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="COY-Lm-H6D"/>
+                                        </connections>
+                                    </view>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="wM3-Ws-jwm">
+                                        <rect key="frame" x="168" y="165" width="39" height="37"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wM3-Ws-jwm" firstAttribute="centerX" secondItem="UIk-1J-dhL" secondAttribute="centerX" id="BNm-WJ-CtZ"/>
+                                    <constraint firstItem="14S-o2-Qz5" firstAttribute="height" secondItem="UIk-1J-dhL" secondAttribute="height" multiplier="0.32" id="BoB-w8-XBp"/>
+                                    <constraint firstAttribute="trailing" secondItem="14S-o2-Qz5" secondAttribute="trailing" id="HQh-Pv-fFu"/>
+                                    <constraint firstItem="wM3-Ws-jwm" firstAttribute="centerY" secondItem="UIk-1J-dhL" secondAttribute="centerY" multiplier="0.55" id="d43-kf-qPN"/>
+                                    <constraint firstItem="14S-o2-Qz5" firstAttribute="leading" secondItem="UIk-1J-dhL" secondAttribute="leading" id="eOa-Xv-J6B"/>
+                                    <constraint firstItem="14S-o2-Qz5" firstAttribute="top" secondItem="UIk-1J-dhL" secondAttribute="top" id="hgW-8q-OBk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UIk-1J-dhL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="HFE-3E-y1S"/>
+                            <constraint firstItem="UIk-1J-dhL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MoV-DB-yHF"/>
+                            <constraint firstAttribute="bottom" secondItem="UIk-1J-dhL" secondAttribute="bottom" id="a6M-YU-nMq"/>
+                            <constraint firstAttribute="trailing" secondItem="UIk-1J-dhL" secondAttribute="trailing" id="vP6-Vf-idb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="carouselView" destination="14S-o2-Qz5" id="c8P-as-tek"/>
+                        <outlet property="pageControl" destination="wM3-Ws-jwm" id="5pe-mi-uCx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

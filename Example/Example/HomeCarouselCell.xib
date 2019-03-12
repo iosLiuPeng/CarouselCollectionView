@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCarouselCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S12-ZS-IIh" userLabel="View content">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_moude1_top" translatesAutoresizingMaskIntoConstraints="NO" id="Mqi-JS-9hJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73e-0l-fJw" userLabel="View line">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Number" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="avx-gW-yuk">
+                                <rect key="frame" x="28" y="43" width="262.66666666666669" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_moude1_tag" translatesAutoresizingMaskIntoConstraints="NO" id="VI8-cR-0Vz">
+                                <rect key="frame" x="28" y="86.666666666666671" width="26.333333333333329" height="7.6666666666666714"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VI8-cR-0Vz" secondAttribute="height" multiplier="7:2" id="fCz-f5-Oar"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C4Y-aH-VlP">
+                                <rect key="frame" x="28" y="104.33333333333333" width="169" height="53.666666666666671"/>
+                                <string key="text">精神文字
+诠释人生意义</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="0.79971104452054798" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Mqi-JS-9hJ" secondAttribute="trailing" id="04U-fw-GaY"/>
+                            <constraint firstItem="C4Y-aH-VlP" firstAttribute="top" secondItem="VI8-cR-0Vz" secondAttribute="bottom" constant="10" id="7ov-zz-f1C"/>
+                            <constraint firstItem="73e-0l-fJw" firstAttribute="leading" secondItem="S12-ZS-IIh" secondAttribute="leading" id="AU7-Fl-rUS"/>
+                            <constraint firstItem="C4Y-aH-VlP" firstAttribute="height" secondItem="S12-ZS-IIh" secondAttribute="height" multiplier="0.25" id="CJx-9L-Lp6"/>
+                            <constraint firstItem="Mqi-JS-9hJ" firstAttribute="leading" secondItem="S12-ZS-IIh" secondAttribute="leading" id="HHK-Qx-OEl"/>
+                            <constraint firstItem="avx-gW-yuk" firstAttribute="height" relation="lessThanOrEqual" secondItem="S12-ZS-IIh" secondAttribute="height" multiplier="0.4" id="LHB-bs-ZuJ"/>
+                            <constraint firstItem="73e-0l-fJw" firstAttribute="top" secondItem="S12-ZS-IIh" secondAttribute="top" id="NH3-Va-Fk4"/>
+                            <constraint firstItem="VI8-cR-0Vz" firstAttribute="leading" secondItem="avx-gW-yuk" secondAttribute="leading" id="OSM-HJ-VOa"/>
+                            <constraint firstItem="C4Y-aH-VlP" firstAttribute="leading" secondItem="avx-gW-yuk" secondAttribute="leading" id="ZIY-5y-269"/>
+                            <constraint firstItem="VI8-cR-0Vz" firstAttribute="height" secondItem="S12-ZS-IIh" secondAttribute="height" multiplier="0.035" id="agw-U3-RLu"/>
+                            <constraint firstItem="73e-0l-fJw" firstAttribute="height" secondItem="S12-ZS-IIh" secondAttribute="height" multiplier="0.2" id="bY9-R5-bA2"/>
+                            <constraint firstItem="C4Y-aH-VlP" firstAttribute="width" secondItem="S12-ZS-IIh" secondAttribute="width" multiplier="0.45" id="hBK-3o-nI0"/>
+                            <constraint firstAttribute="bottom" secondItem="Mqi-JS-9hJ" secondAttribute="bottom" id="j77-mz-Auu"/>
+                            <constraint firstItem="avx-gW-yuk" firstAttribute="centerX" secondItem="S12-ZS-IIh" secondAttribute="centerX" multiplier="0.85" id="k2H-zN-05f"/>
+                            <constraint firstItem="avx-gW-yuk" firstAttribute="top" secondItem="73e-0l-fJw" secondAttribute="bottom" id="mnK-j4-RS6"/>
+                            <constraint firstItem="Mqi-JS-9hJ" firstAttribute="top" secondItem="S12-ZS-IIh" secondAttribute="top" id="o5g-UD-1gr"/>
+                            <constraint firstItem="VI8-cR-0Vz" firstAttribute="top" secondItem="avx-gW-yuk" secondAttribute="bottom" constant="10" id="vgQ-OH-EGu"/>
+                            <constraint firstAttribute="trailing" secondItem="73e-0l-fJw" secondAttribute="trailing" id="yTy-1n-VPD"/>
+                            <constraint firstItem="avx-gW-yuk" firstAttribute="width" secondItem="S12-ZS-IIh" secondAttribute="width" multiplier="0.7" id="zLQ-2Y-3hw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="S12-ZS-IIh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Itj-db-jQf"/>
+                <constraint firstAttribute="trailing" secondItem="S12-ZS-IIh" secondAttribute="trailing" id="fwY-uk-DbF"/>
+                <constraint firstAttribute="bottom" secondItem="S12-ZS-IIh" secondAttribute="bottom" id="sAw-yP-xSv"/>
+                <constraint firstItem="S12-ZS-IIh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zkc-7T-lwa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="imgBg" destination="Mqi-JS-9hJ" id="arf-0a-UCo"/>
+                <outlet property="imgTag" destination="VI8-cR-0Vz" id="bQb-pt-pNP"/>
+                <outlet property="lblSubTitle" destination="C4Y-aH-VlP" id="mlT-hw-BBL"/>
+                <outlet property="lblTitle" destination="avx-gW-yuk" id="ekl-Sc-b8d"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="home_moude1_tag" width="21" height="6"/>
+        <image name="home_moude1_top" width="375" height="217"/>
+    </resources>
+</document>
