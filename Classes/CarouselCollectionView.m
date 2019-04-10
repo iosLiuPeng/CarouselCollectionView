@@ -140,7 +140,9 @@
     }
     
     NSIndexPath *userIndexPath = [self toUserIndexPath:_currentIndexPath];
-    [_myDelegate collectionView:self currentIndexPath:userIndexPath];
+    if ([_myDelegate respondsToSelector:@selector(collectionView:currentIndexPath:)]) {
+        [_myDelegate collectionView:self currentIndexPath:userIndexPath];
+    }
 }
 
 #pragma mark - Action
@@ -184,7 +186,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *userIndexPath = [self toUserIndexPath:indexPath];
-    [_myDelegate collectionView:collectionView didSelectItemAtIndexPath:userIndexPath];
+    if ([_myDelegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]) {
+        [_myDelegate collectionView:collectionView didSelectItemAtIndexPath:userIndexPath];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
