@@ -9,8 +9,8 @@
 #import "CarouselCollectionView.h"
 
 @interface CarouselCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-@property (nonatomic, weak, nullable) id <CarouselCollectionViewDelegate> myDelegate;
-@property (nonatomic, weak, nullable) id <CarouselCollectionViewDataSource> myDataSource;
+//@property (nonatomic, weak, nullable) id <CarouselCollectionViewDelegate> carouselDelegate;
+//@property (nonatomic, weak, nullable) id <CarouselCollectionViewDataSource> carouselDataSource;
 
 @property (nonatomic, assign) NSInteger itemCount;///< 元素个数
 @property (nonatomic, assign) BOOL onceToken;///< 第一次显示
@@ -78,22 +78,22 @@
 #pragma mark - Set & Get
 - (void)setDelegate:(id<CarouselCollectionViewDelegate>)delegate
 {
-    _myDelegate = delegate;
+    _carouselDelegate = delegate;
 }
 
 - (id<CarouselCollectionViewDelegate>)delegate
 {
-    return _myDelegate;
+    return _carouselDelegate;
 }
 
 - (void)setDataSource:(id<CarouselCollectionViewDataSource>)dataSource
 {
-    _myDataSource = dataSource;
+    _carouselDataSource = dataSource;
 }
 
 - (id<CarouselCollectionViewDataSource>)dataSource
 {
-    return _myDataSource;
+    return _carouselDataSource;
 }
 
 - (void)setDuration:(CGFloat)duration
@@ -140,8 +140,8 @@
     }
     
     NSIndexPath *userIndexPath = [self toUserIndexPath:_currentIndexPath];
-    if ([_myDelegate respondsToSelector:@selector(collectionView:currentIndexPath:)]) {
-        [_myDelegate collectionView:self currentIndexPath:userIndexPath];
+    if ([_carouselDelegate respondsToSelector:@selector(collectionView:currentIndexPath:)]) {
+        [_carouselDelegate collectionView:self currentIndexPath:userIndexPath];
     }
 }
 
@@ -186,15 +186,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *userIndexPath = [self toUserIndexPath:indexPath];
-    if ([_myDelegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]) {
-        [_myDelegate collectionView:collectionView didSelectItemAtIndexPath:userIndexPath];
+    if ([_carouselDelegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]) {
+        [_carouselDelegate collectionView:collectionView didSelectItemAtIndexPath:userIndexPath];
     }
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger count = [_myDataSource collectionView:collectionView numberOfItemsInSection:section];
+    NSInteger count = [_carouselDataSource collectionView:collectionView numberOfItemsInSection:section];
     if (count <= 0) {
         _itemCount = 0;
     } else {
@@ -206,7 +206,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *userIndexPath = [self toUserIndexPath:indexPath];
-    return [_myDataSource collectionView:collectionView cellForItemAtIndexPath:userIndexPath];
+    return [_carouselDataSource collectionView:collectionView cellForItemAtIndexPath:userIndexPath];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -224,6 +224,9 @@
 - (void)orientationDidChange
 {
     [self.collectionViewLayout invalidateLayout];
-    [self scrollToItemAtIndexPath:_currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+    
+    if (_itemCount > 0) {
+        [self scrollToItemAtIndexPath:_currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+    }
 }
 @end
