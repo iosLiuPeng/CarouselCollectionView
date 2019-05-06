@@ -9,8 +9,8 @@
 #import "CarouselCollectionView.h"
 
 @interface CarouselCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-//@property (nonatomic, weak, nullable) id <CarouselCollectionViewDelegate> carouselDelegate;
-//@property (nonatomic, weak, nullable) id <CarouselCollectionViewDataSource> carouselDataSource;
+@property (nonatomic, weak, nullable) id <CarouselCollectionViewDelegate> carouselDelegate;
+@property (nonatomic, weak, nullable) id <CarouselCollectionViewDataSource> carouselDataSource;
 
 @property (nonatomic, assign) NSInteger itemCount;///< 元素个数
 @property (nonatomic, assign) BOOL onceToken;///< 第一次显示
@@ -59,8 +59,8 @@
 #pragma mark - Subjoin
 - (void)viewConfig
 {
-    super.dataSource = self;
     super.delegate = self;
+    super.dataSource = self;
     
     self.pagingEnabled = YES;
     self.showsHorizontalScrollIndicator = NO;
@@ -114,6 +114,10 @@
 /// 当前indexPath转为外面实际数据源的indexPath
 - (NSIndexPath *)toUserIndexPath:(NSIndexPath *)indexPath
 {
+    if (_itemCount == 0) {
+        return [NSIndexPath indexPathForItem:0 inSection:0];
+    }
+    
     NSIndexPath *userIndex = nil;
     if (indexPath.row == 0) {
         userIndex = [NSIndexPath indexPathForItem:_itemCount - 3 inSection:0];

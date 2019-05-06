@@ -24,19 +24,28 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface CarouselCollectionView : UICollectionView
-//@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDelegate> delegate;
-//@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDataSource> dataSource;
+@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDelegate> delegate;
+@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDataSource> dataSource;
 
 @property (nonatomic, assign) IBInspectable CGFloat duration;///< 自动滚动间隔（默认为0，不自动滚动）
 
 /*
- 已知在ios9.0的机型上，使用“@dynamic + IBOutlet id delegate;”有时会出问题，
- 系统有时会不走@dynamic的设置器，从而代理对象会设置错误
- 此时，请使用下面两各个代理连接所属ViewContriller，而不要使用UICollectionView自带的两个代理
-*/
-@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDelegate> carouselDelegate;
-@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDataSource> carouselDataSource;
+ ⚠️ ipod机型上有严重BUG ⚠️
+ 已知在ipod机型上，设置dataSource代理时，不会走当前view的numberOfItemsInSection方法。
+ 1.只有dataSource会出问题，delegate是正常的
+ 2.和设置delegate = self、dataSource = self的顺序无关
+ 3.只有走numberOfItemsInSection方法时，dataSource的代理对象是错误的，之后执行cellForItemAtIndexPath方法时代理对象恢复正常
  
+ 如果需要考虑ipod机型：
+ 1.注释上面的delegate、dataSource属性
+ 2.使用下面的carouselDelegate、carouselDataSource（取消注释）
+ 3.注释.m文件中的carouselDelegate、carouselDataSource
+ 4.注释.m文件中的delegate、dataSource的设置器和访问器方法
+ 5.xib、sb中连接代理对象时，使用carouselDelegate、carouselDataSource，不使用delegate、dataSource
+*/
+//@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDelegate> carouselDelegate;
+//@property (nonatomic, weak, nullable) IBOutlet id <CarouselCollectionViewDataSource> carouselDataSource;
+
 
 @end
 
